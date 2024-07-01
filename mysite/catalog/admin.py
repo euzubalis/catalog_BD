@@ -15,3 +15,4 @@ admin.site.register(Manufacturer)
 admin.site.register(AirConditioner, AirConditionerAdmin)
 admin.site.register(TechnicalSpecification, TechnicalSpecificationAdmin)
 
+
