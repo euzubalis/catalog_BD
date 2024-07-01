@@ -18,3 +18,4 @@ admin.site.register(TechnicalSpecification, TechnicalSpecificationAdmin)
 
 
 
+
