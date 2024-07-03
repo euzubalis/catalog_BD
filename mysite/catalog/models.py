@@ -50,3 +50,4 @@ class TechnicalSpecification(models.Model):
     class Meta:
         verbose_name = "Techninė specifikaciją"
         verbose_name_plural = "Techninės specifikacijos"
+
