@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block 'title' %}KATALOGAS{% endblock %}
+
+{% block 'content' %}
+    <h1>Šiuo metu mes turime:</h1>
+    <ul>
+        <li><strong>Gamintojai:</strong> {{ num_manufacturer }}</li>
+        <li><strong>Gamybos šalys:</strong> {{ num_country }}</li>
+    </ul>
+{% endblock %}
