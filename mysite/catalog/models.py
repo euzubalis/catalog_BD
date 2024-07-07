@@ -14,6 +14,7 @@ class Manufacturer(models.Model):
     name = models.CharField(verbose_name="Gamintojas", max_length=100)
     description = models.TextField(verbose_name="Aprašymas", max_length=5000, default="")
 
+
     def __str__(self):
         return self.name
 

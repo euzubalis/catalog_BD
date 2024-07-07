@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block 'title' %}Airconditioners{% endblock %}
+
+{% block 'content' %}
+    <h1>Oro kondicionerių modeliai:</h1>
+    {% for airconditioner in airconditioners %}
+        <p><a href="">{{ airconditioner }}</a></p>
+        <hr>
+    {% endfor %}
+{% endblock %}
+

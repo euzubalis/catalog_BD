@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Manufacturer, Country
+from .models import Manufacturer, Country, AirConditioner
+from django.views import generic
+
 # Create your views here.
 def index(request):
     num_manufacturer = Manufacturer.objects.all().count()
@@ -24,6 +26,11 @@ def manufacturer(request, manufacturer_id):
         "manufacturer": manufacturer,
     }
     return render(request, template_name="manufacturer.html", context=context)
+
+class AirConditionerListView(generic.ListView):
+    model = AirConditioner
+    context_object_name = 'airconditioners'
+    template_name = 'airconditioners.html'
 
 
 
