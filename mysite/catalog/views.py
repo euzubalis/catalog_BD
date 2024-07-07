@@ -11,6 +11,13 @@ def index(request):
     }
     return render(request, template_name="index.html", context=context)
 
+def manufacturers(request):
+    manufacturers = Manufacturer.objects.all()
+    context = {
+        "manufacturers": manufacturers,
+    }
+    return render(request, template_name="manufacturers.html", context=context)
+
 
 
 

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block 'title' %}KATALOGAS{% endblock %}
+
+{% block 'content' %}
+    <h1>Gamintojai:</h1>
+    {% for manufacturer in manufacturers %}
+        <p>{{ manufacturer }}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}
+
