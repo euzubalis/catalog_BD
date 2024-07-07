@@ -32,6 +32,11 @@ class AirConditionerListView(generic.ListView):
     context_object_name = 'airconditioners'
     template_name = 'airconditioners.html'
 
+class AirConditionerDetailView(generic.DetailView):
+    model = AirConditioner
+    context_object_name = 'airconditioner'
+    template_name = 'airconditioner.html'
+
 
 
 

@@ -31,7 +31,7 @@ class AirConditioner(models.Model):
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='air_conditioners', verbose_name="Šalis")
 
     def __str__(self):
-        return self.model_name
+        return f'{self.manufacturer} - {self.model_name}'
 
     class Meta:
         verbose_name = "Oro Kondicionierius"
