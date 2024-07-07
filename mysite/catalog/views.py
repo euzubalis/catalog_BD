@@ -18,6 +18,13 @@ def manufacturers(request):
     }
     return render(request, template_name="manufacturers.html", context=context)
 
+def manufacturer(request, manufacturer_id):
+    manufacturer = Manufacturer.objects.get(pk=manufacturer_id)
+    context = {
+        "manufacturer": manufacturer,
+    }
+    return render(request, template_name="manufacturer.html", context=context)
+
 
 
 

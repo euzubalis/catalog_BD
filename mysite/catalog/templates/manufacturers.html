@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
-{% block 'title' %}KATALOGAS{% endblock %}
+{% block 'title' %}Manufacturers{% endblock %}
 
 {% block 'content' %}
     <h1>Gamintojai:</h1>
     {% for manufacturer in manufacturers %}
-        <p>{{ manufacturer }}</p>
+        <p><a href="{% url 'manufacturer' manufacturer.pk %}">{{ manufacturer }}</a></p>
         <hr>
     {% endfor %}
 {% endblock %}
