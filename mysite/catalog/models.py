@@ -47,12 +47,11 @@ class TechnicalSpecification(models.Model):
     price = models.DecimalField(verbose_name="Kaina", max_digits=10, decimal_places=2, default=0)
 
     def __str__(self):
-        return f"Technical specs for {self.air_conditioner}"
+        return f"Technininė specifikacija: {self.air_conditioner} {self.power} kW"
 
     class Meta:
         verbose_name = "Techninė specifikaciją"
         verbose_name_plural = "Techninės specifikacijos"
-
 
 
 

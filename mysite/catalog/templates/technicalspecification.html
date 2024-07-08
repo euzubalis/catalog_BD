@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+Techninė specifikacija
+{% endblock %}
+
+{% block 'content' %}
+<h2 style="margin-bottom: 20px;">{{ technicalspecification.air_conditioner }}</h2>
+<p>● Vidinio bloko matmenys: {{ technicalspecification.indoor_unit_dimensions }}</p>
+<p>● Lauko bloko matmenys: {{ technicalspecification.outdoor_unit_dimensions }}</p>
+<p>● Energijos efektyvumo klasė: {{ technicalspecification.energy_efficiency_class }}</p>
+<p>● Darbinė temperatūra: {{ technicalspecification.operating_temperature }}</p>
+<p>● Lauko bloko svoris: {{ technicalspecification.outdoor_unit_weight }}</p>
+<p>● Vidinio bloko svoris: {{ technicalspecification.indoor_unit_weight }}</p>
+<p>● Galingumas: {{ technicalspecification.power }} kW</p>
+<p><strong style="font-size: 20px;">KAINA: {{ technicalspecification.price }} €</strong></p>
+{% endblock %}

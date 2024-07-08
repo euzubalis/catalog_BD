@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block 'title' %}Techninės specifikacijos{% endblock %}
+
+{% block 'content' %}
+    <h1>Techninės specifikacijos:</h1>
+    {% for technicalspecification in technicalspecifications %}
+        <p><a href="{{ technicalspecification.pk }}">{{ technicalspecification }}</a></p>
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Manufacturer, Country, AirConditioner
+from .models import Manufacturer, Country, AirConditioner, TechnicalSpecification
 from django.views import generic
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+
 
 # Create your views here.
 def index(request):
@@ -36,6 +39,24 @@ class AirConditionerDetailView(generic.DetailView):
     model = AirConditioner
     context_object_name = 'airconditioner'
     template_name = 'airconditioner.html'
+
+class TechnicalSpecificationListView(ListView):
+    model = TechnicalSpecification
+    template_name = 'technicalspecifications.html'
+    context_object_name = 'technicalspecifications'
+    paginate_by = 10
+
+class TechnicalSpecificationDetailView(DetailView):
+    model = TechnicalSpecification
+    template_name = 'technicalspecification.html'
+    context_object_name = 'technicalspecification'
+
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        print(obj.__dict__)  # išvesti objekto duomenis
+        return obj
+
+
 
 
 
