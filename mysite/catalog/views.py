@@ -34,6 +34,7 @@ class AirConditionerListView(generic.ListView):
     model = AirConditioner
     context_object_name = 'airconditioners'
     template_name = 'airconditioners.html'
+    paginate_by = 5
 
 class AirConditionerDetailView(generic.DetailView):
     model = AirConditioner
