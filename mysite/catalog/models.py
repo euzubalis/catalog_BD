@@ -24,9 +24,7 @@ class Manufacturer(models.Model):
 
 class AirConditioner(models.Model):
     model_name = models.CharField(verbose_name="Modelis", max_length=100)
-    description = models.TextField(verbose_name="Aprašymas", max_length=1000)
-    power = models.DecimalField(verbose_name="Galingumas (kW)", max_digits=10, decimal_places=2, default=0)
-    price = models.DecimalField(verbose_name="Kaina", max_digits=10, decimal_places=2)
+    description = models.TextField(verbose_name="Aprašymas", max_length=5000, default="")
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, related_name='air_conditioners', verbose_name="Gamintojas")
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='air_conditioners', verbose_name="Šalis")
 
@@ -45,6 +43,8 @@ class TechnicalSpecification(models.Model):
     operating_temperature = models.CharField(verbose_name="Darbinės temperatūros ribos šaldymas/šildymas", max_length=50)
     outdoor_unit_weight = models.DecimalField(verbose_name="Svoris išorinio bloko (kg)", max_digits=10, decimal_places=2)
     indoor_unit_weight = models.DecimalField(verbose_name="Svoris vidinio bloko (kg)", max_digits=10, decimal_places=2)
+    power = models.DecimalField(verbose_name="Galingumas (kW)", max_digits=10, decimal_places=2, default=0)
+    price = models.DecimalField(verbose_name="Kaina", max_digits=10, decimal_places=2, default=0)
 
     def __str__(self):
         return f"Technical specs for {self.air_conditioner}"
