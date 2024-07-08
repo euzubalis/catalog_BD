@@ -36,7 +36,7 @@ class AirConditioner(models.Model):
         verbose_name_plural = "Oro Kondicionieriai"
 
 class TechnicalSpecification(models.Model):
-    air_conditioner = models.OneToOneField(AirConditioner, on_delete=models.CASCADE, related_name='technical_specification', verbose_name="Oro kondicionierius")
+    air_conditioner = models.ForeignKey(AirConditioner, on_delete=models.CASCADE, related_name='technical_specifications', verbose_name="Oro kondicionierius")
     indoor_unit_dimensions = models.CharField(verbose_name="Vidinio bloko matmenys", max_length=50)
     outdoor_unit_dimensions = models.CharField(verbose_name="Išorinio bloko matmenys", max_length=50)
     energy_efficiency_class = models.CharField(verbose_name="Energijos efektyvumo klasė", max_length=10)
@@ -52,4 +52,7 @@ class TechnicalSpecification(models.Model):
     class Meta:
         verbose_name = "Techninė specifikaciją"
         verbose_name_plural = "Techninės specifikacijos"
+
+
+
 
