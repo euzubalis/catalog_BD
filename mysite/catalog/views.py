@@ -4,6 +4,7 @@ from .models import Manufacturer, Country, AirConditioner, TechnicalSpecificatio
 from django.views import generic
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
+from django.core.paginator import Paginator
 
 
 # Create your views here.
@@ -18,8 +19,11 @@ def index(request):
 
 def manufacturers(request):
     manufacturers = Manufacturer.objects.all()
+    paginator = Paginator(manufacturers, per_page=5)
+    page_number = request.GET.get('page')
+    paged_manufacturers = paginator.get_page(page_number)
     context = {
-        "manufacturers": manufacturers,
+        "manufacturers": paged_manufacturers,
     }
     return render(request, template_name="manufacturers.html", context=context)
 
@@ -45,7 +49,7 @@ class TechnicalSpecificationListView(ListView):
     model = TechnicalSpecification
     template_name = 'technicalspecifications.html'
     context_object_name = 'technicalspecifications'
-    paginate_by = 10
+    paginate_by = 5
 
 class TechnicalSpecificationDetailView(DetailView):
     model = TechnicalSpecification
