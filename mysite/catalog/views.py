@@ -12,9 +12,12 @@ from django.db.models import Q
 def index(request):
     num_manufacturer = Manufacturer.objects.all().count()
     num_country = Country.objects.all().count()
+    num_visits = request.session.get('num_visits', 1)
+    request.session['num_visits'] = num_visits + 1
     context = {
         'num_manufacturer': num_manufacturer,
         'num_country': num_country,
+        'num_visits': num_visits,
     }
     return render(request, template_name="index.html", context=context)
 
