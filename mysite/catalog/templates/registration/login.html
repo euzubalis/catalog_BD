@@ -2,6 +2,16 @@
 {% block 'title' %}Prisijungimas{% endblock %}
 
 {% block 'content' %}
+
+{% if form.errors %}
+    <p>Neteisingas vartotojo vardas arba slaptažodis!</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+        <p>Prašome prisijungti, jeigu norite tęsti.</p>
+    {% endif %}
+{% endif %}
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
