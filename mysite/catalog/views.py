@@ -37,10 +37,10 @@ def manufacturer(request, manufacturer_id):
 
 def search(request):
     query = request.GET.get('query')
-    manufacturers_search_results = Manufacturer.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(air_conditioners__technical_specifications__indoor_unit_dimensions__icontains=query) | Q(air_conditioners__technical_specifications__outdoor_unit_dimensions__icontains=query) | Q(air_conditioners__technical_specifications__energy_efficiency_class__icontains=query) | Q(air_conditioners__technical_specifications__operating_temperature__icontains=query) | Q(air_conditioners__technical_specifications__power__icontains=query) | Q(air_conditioners__technical_specifications__price__icontains=query) | Q(air_conditioners__country__name__icontains=query))
-    airconditioners_search_results = AirConditioner.objects.filter(Q(model_name__icontains=query) | Q(manufacturer__name__icontains=query) | Q(country__name__icontains=query) | Q(technical_specifications__indoor_unit_dimensions__icontains=query) | Q(technical_specifications__outdoor_unit_dimensions__icontains=query) | Q(technical_specifications__energy_efficiency_class__icontains=query) | Q(technical_specifications__operating_temperature__icontains=query) | Q(technical_specifications__power__icontains=query) | Q(technical_specifications__price__icontains=query))
-    technicalspecifications_search_results = TechnicalSpecification.objects.filter(Q(indoor_unit_dimensions__icontains=query) | Q(outdoor_unit_dimensions__icontains=query) | Q(energy_efficiency_class__icontains=query) | Q(operating_temperature__icontains=query) | Q(power__icontains=query) | Q(price__icontains=query) | Q(air_conditioner__manufacturer__name__icontains=query) | Q(air_conditioner__model_name__icontains=query) | Q(air_conditioner__country__name__icontains=query))
-    manufacturers_by_model_name = Manufacturer.objects.filter(air_conditioners__model_name__icontains=query)
+    manufacturers_search_results = Manufacturer.objects.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(air_conditioners__technical_specifications__indoor_unit_dimensions__icontains=query) | Q(air_conditioners__technical_specifications__outdoor_unit_dimensions__icontains=query) | Q(air_conditioners__technical_specifications__energy_efficiency_class__icontains=query) | Q(air_conditioners__technical_specifications__operating_temperature__icontains=query) | Q(air_conditioners__technical_specifications__power__icontains=query) | Q(air_conditioners__technical_specifications__price__icontains=query) | Q(air_conditioners__country__name__icontains=query)).distinct()
+    airconditioners_search_results = AirConditioner.objects.filter(Q(model_name__icontains=query) | Q(manufacturer__name__icontains=query) | Q(country__name__icontains=query) | Q(technical_specifications__indoor_unit_dimensions__icontains=query) | Q(technical_specifications__outdoor_unit_dimensions__icontains=query) | Q(technical_specifications__energy_efficiency_class__icontains=query) | Q(technical_specifications__operating_temperature__icontains=query) | Q(technical_specifications__power__icontains=query) | Q(technical_specifications__price__icontains=query)).distinct()
+    technicalspecifications_search_results = TechnicalSpecification.objects.filter(Q(indoor_unit_dimensions__icontains=query) | Q(outdoor_unit_dimensions__icontains=query) | Q(energy_efficiency_class__icontains=query) | Q(operating_temperature__icontains=query) | Q(power__icontains=query) | Q(price__icontains=query) | Q(air_conditioner__manufacturer__name__icontains=query) | Q(air_conditioner__model_name__icontains=query) | Q(air_conditioner__country__name__icontains=query)).distinct()
+    manufacturers_by_model_name = Manufacturer.objects.filter(air_conditioners__model_name__icontains=query).distinct()
     context = {
         "query": query,
         "manufacturers": (manufacturers_search_results | manufacturers_by_model_name).distinct(),
@@ -64,7 +64,7 @@ class TechnicalSpecificationListView(ListView):
     model = TechnicalSpecification
     template_name = 'technicalspecifications.html'
     context_object_name = 'technicalspecifications'
-    paginate_by = 5
+    paginate_by = 6
 
 class TechnicalSpecificationDetailView(DetailView):
     model = TechnicalSpecification

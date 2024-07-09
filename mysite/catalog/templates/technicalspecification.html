@@ -5,7 +5,10 @@ Techninė specifikacija
 {% endblock %}
 
 {% block 'content' %}
-<h2 style="margin-bottom: 20px;">{{ technicalspecification.air_conditioner }}</h2>
+    {% if technicalspecification.cover %}
+        <img src="{{ technicalspecification.cover.url }}" style="width: 300px; height: 300px; object-fit: contain;">
+    {% endif %}
+<h2 style="margin-bottom: 20px;">{{ technicalspecification.air_conditioner.model_name }}</h2>
 <p>● Vidinio bloko matmenys: {{ technicalspecification.indoor_unit_dimensions }}</p>
 <p>● Lauko bloko matmenys: {{ technicalspecification.outdoor_unit_dimensions }}</p>
 <p>● Energijos efektyvumo klasė: {{ technicalspecification.energy_efficiency_class }}</p>

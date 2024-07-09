@@ -3,9 +3,18 @@
 
 {% block 'content' %}
     <h1>Techninės specifikacijos:</h1>
+<div class="row">
     {% for technicalspecification in technicalspecifications %}
-        <p><a href="{{ technicalspecification.pk }}">{{ technicalspecification }}</a></p>
-        <hr>
+    <div class="col-md-4 d-flex align-items-strech">
+        <div class="card mb-4 shadow-sm" style="width:300px">
+            {% if technicalspecification.cover %}
+            <a href="{% url 'technicalspecification' technicalspecification.pk %}">
+                <img src="{{ technicalspecification.cover.url }}" class="card-img-top" alt="{{ ... }}" style="height: 250px; width: 250px; object-fit: contain;">
+            </a>
+            {% endif %}
+            <p><a href="{% url 'technicalspecification' technicalspecification.pk %}" style="color: black; text-decoration: none;"><strong>{{ technicalspecification.manufacturer.name }} - {{ technicalspecification.model_name }}</strong></a></p>
+        </div>
+    </div>
     {% endfor %}
   <div class="pagination">
     <span class="step-links">

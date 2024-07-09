@@ -47,6 +47,7 @@ class TechnicalSpecification(models.Model):
     indoor_unit_weight = models.DecimalField(verbose_name="Svoris vidinio bloko (kg)", max_digits=10, decimal_places=2)
     power = models.DecimalField(verbose_name="Galingumas (kW)", max_digits=10, decimal_places=2, default=0)
     price = models.DecimalField(verbose_name="Kaina", max_digits=10, decimal_places=2, default=0)
+    cover = models.ImageField(verbose_name="Nuotrauka", upload_to='covers', null=True, blank=True)
 
     def __str__(self):
         return f"Technininė specifikacija: {self.air_conditioner} {self.power} kW"
