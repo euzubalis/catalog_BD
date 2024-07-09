@@ -130,3 +130,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'catalog/media')
 
 MEDIA_URL = '/media/'
 
+LOGIN_REDIRECT_URL = '/'
+
