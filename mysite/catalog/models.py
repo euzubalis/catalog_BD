@@ -13,6 +13,7 @@ class Country(models.Model):
 class Manufacturer(models.Model):
     name = models.CharField(verbose_name="Gamintojas", max_length=100)
     description = models.TextField(verbose_name="Aprašymas", max_length=5000, default="")
+    cover = models.ImageField(verbose_name="Logotipas", upload_to='covers', null=True, blank=True)
 
 
     def __str__(self):
@@ -27,6 +28,7 @@ class AirConditioner(models.Model):
     description = models.TextField(verbose_name="Aprašymas", max_length=5000, default="")
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE, related_name='air_conditioners', verbose_name="Gamintojas")
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='air_conditioners', verbose_name="Šalis")
+    cover = models.ImageField(verbose_name="Nuotrauka", upload_to='covers', null=True, blank=True)
 
     def __str__(self):
         return f'{self.manufacturer} - {self.model_name}'

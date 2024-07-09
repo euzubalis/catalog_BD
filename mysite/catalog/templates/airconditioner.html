@@ -2,6 +2,9 @@
 {% block 'title' %}Airconditioner{% endblock %}
 
 {% block 'content' %}
+    {% if airconditioner.cover %}
+        <img src="{{ airconditioner.cover.url }}" style="width: 300px; height: 300px; object-fit: contain;">
+    {% endif %}
     <h1>{{ airconditioner.manufacturer }}</h1>
     <p><strong>Modelis: </strong>{{ airconditioner.model_name }}</p>
     <p><strong>Gamybos šalis: </strong>{{ airconditioner.country }}</p>

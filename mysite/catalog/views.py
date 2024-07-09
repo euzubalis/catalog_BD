@@ -20,7 +20,7 @@ def index(request):
 
 def manufacturers(request):
     manufacturers = Manufacturer.objects.all()
-    paginator = Paginator(manufacturers, per_page=5)
+    paginator = Paginator(manufacturers, per_page=6)
     page_number = request.GET.get('page')
     paged_manufacturers = paginator.get_page(page_number)
     context = {
@@ -53,7 +53,7 @@ class AirConditionerListView(generic.ListView):
     model = AirConditioner
     context_object_name = 'airconditioners'
     template_name = 'airconditioners.html'
-    paginate_by = 5
+    paginate_by = 6
 
 class AirConditionerDetailView(generic.DetailView):
     model = AirConditioner

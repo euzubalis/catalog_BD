@@ -3,9 +3,19 @@
 
 {% block 'content' %}
     <h1>Oro kondicionerių modeliai:</h1>
+<div class="row">
     {% for airconditioner in airconditioners %}
-        <p><a href="{{ airconditioner.pk }}">{{ airconditioner }}</a></p>
-        <hr>
+    <div class="col-md-4 d-flex align-items-strech">
+        <div class="card mb-4 shadow-sm" style="width:300px">
+            {% if airconditioner.cover %}
+            <a href="{% url 'airconditioner' airconditioner.pk %}">
+                <img src="{{ airconditioner.cover.url }}" class="card-img-top" alt="{{ ... }}" style="height: 250px; width: 250px; object-fit: contain;">
+            </a>
+            {% endif %}
+            <p><a href="{% url 'airconditioner' airconditioner.pk %}" style="color: black; text-decoration: none;"><strong>{{ airconditioner.manufacturer.name }} - {{ airconditioner.model_name }}</strong></a></p>
+        </div>
+    </div>
+
     {% endfor %}
   <div class="pagination">
     <span class="step-links">

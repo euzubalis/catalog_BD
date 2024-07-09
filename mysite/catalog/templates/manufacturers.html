@@ -3,10 +3,21 @@
 
 {% block 'content' %}
     <h1>Gamintojai:</h1>
+<div class="row">
     {% for manufacturer in manufacturers %}
-        <p><a href="{% url 'manufacturer' manufacturer.pk %}">{{ manufacturer }}</a></p>
-        <hr>
+    <div class="col-md-4 d-flex align-items-strech">
+        <div class="card mb-4 shadow-sm" style="width:300px">
+            {% if manufacturer.cover %}
+            <a href="{% url 'manufacturer' manufacturer.pk %}">
+                <img src="{{ manufacturer.cover.url }}" class="card-img-top" alt="{{ ... }}" style="height: 200px; width: 200px; object-fit: contain;">
+            </a>
+            {% endif %}
+            <p><a href="{% url 'manufacturer' manufacturer.pk %}" style="color: black; text-decoration: none;"><strong>{{ manufacturer.name }}</strong></a></p>
+        </div>
+    </div>
+
     {% endfor %}
+</div>
     <div class="container puslapiai">
         <nav aria-label="...">
             {% if manufacturers.has_other_pages %}

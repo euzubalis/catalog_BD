@@ -2,7 +2,9 @@
 {% block 'title' %}Manufacturer{% endblock %}
 
 {% block 'content' %}
+    {% if manufacturer.cover %}
+        <img src="{{ manufacturer.cover.url }}" alt="{{ manufacturer.name }}" style="display: block; margin: auto;">
+    {% endif %}
     <h1>{{ manufacturer }}</h1>
     <p>{{ manufacturer.description }}</p>
 {% endblock %}
-
