@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from .views import TechnicalSpecificationListView, TechnicalSpecificationDetailView
+from .views import TechnicalSpecificationListView, TechnicalSpecificationDetailView, register
 
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('technicalspecifications/', TechnicalSpecificationListView.as_view(), name='technicalspecifications'),
     path('technicalspecifications/<int:pk>/', TechnicalSpecificationDetailView.as_view(), name='technicalspecification'),
     path('search/', views.search, name='search'),
+    path('register/', register, name='register'),
 ]
