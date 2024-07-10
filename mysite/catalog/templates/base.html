@@ -9,7 +9,7 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
-<body>
+<body class="d-flex flex-column">
 
 <div class="p-5 bg-primary text-white text-center">
   <h1>Kondicionierių katalogas</h1>
@@ -69,7 +69,7 @@
   </div>
 </div>
 
-<div class="bg-dark text-white text-center fixed-bottom footer p-4">
+<div class="bg-dark text-white text-center mt-auto footer p-4">
   <div class="d-flex justify-content-center">
   <p>{% now "Y-m-d H:i" %}</p>
   </div>

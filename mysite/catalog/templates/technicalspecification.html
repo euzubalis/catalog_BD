@@ -17,4 +17,16 @@ Techninė specifikacija
 <p>● Vidinio bloko svoris: {{ technicalspecification.indoor_unit_weight }}</p>
 <p>● Galingumas: {{ technicalspecification.power }} kW</p>
 <p><strong style="font-size: 20px;">KAINA: {{ technicalspecification.price }} €</strong></p>
+
+{% if user.is_authenticated %}
+<div class="fieldWrapper">
+    <hr><br/>
+    <h4>Palikite komentarą, jeigu domina šis modelis</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.content }}<br/>
+        <input type="submit" value="Paskelbti">
+    </form>
+</div>
+    {% endif %}
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from .models import Manufacturer, Country, AirConditioner, TechnicalSpecification
 from django.views import generic
 from django.views.generic import ListView
@@ -10,6 +10,8 @@ from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import password_validation
+from .forms import ConditionerOrderForm
+from django.views.generic.edit import FormMixin
 
 # Create your views here.
 def index(request):
@@ -72,10 +74,28 @@ class TechnicalSpecificationListView(ListView):
     context_object_name = 'technicalspecifications'
     paginate_by = 3
 
-class TechnicalSpecificationDetailView(DetailView):
+class TechnicalSpecificationDetailView(FormMixin, generic.DetailView):
     model = TechnicalSpecification
     template_name = 'technicalspecification.html'
     context_object_name = 'technicalspecification'
+    form_class = ConditionerOrderForm
+
+    def get_success_url(self):
+        return reverse('technicalspecification', kwargs={'pk': self.object.pk})
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.technical_specification = self.object
+        form.instance.client = self.request.user
+        form.save()
+        return super().form_valid(form)
 
     def get_object(self, queryset=None):
         obj = super().get_object(queryset=queryset)
