@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Country, Manufacturer, AirConditioner, TechnicalSpecification
+from . models import Country, Manufacturer, AirConditioner, TechnicalSpecification, ConditionerOrder
 
 class AirConditionerAdmin(admin.ModelAdmin):
     list_display = ['manufacturer', 'model_name', 'country']
@@ -16,11 +16,18 @@ class TechnicalSpecificationAdmin(admin.ModelAdmin):
 
     get_manufacturer.short_description = 'Gamintojas'
 
+class ConditionerOrderAdmin(admin.ModelAdmin):
+    list_display = ['air_conditioner', 'client', 'date_created']
+
+    def get_manufacturer(self, obj):
+        return obj
+
 # Register your models here.
 admin.site.register(Country)
 admin.site.register(Manufacturer)
 admin.site.register(AirConditioner, AirConditionerAdmin)
 admin.site.register(TechnicalSpecification, TechnicalSpecificationAdmin)
+admin.site.register(ConditionerOrder, ConditionerOrderAdmin)
 
 
 

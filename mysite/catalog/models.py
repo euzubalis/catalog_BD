@@ -57,5 +57,14 @@ class TechnicalSpecification(models.Model):
         verbose_name = "Techninė specifikaciją"
         verbose_name_plural = "Techninės specifikacijos"
 
+class ConditionerOrder(models.Model):
+    air_conditioner = models.ForeignKey(to="TechnicalSpecification", verbose_name="Techninė specifikacija", on_delete=models.SET_NULL, null=True, blank=True, related_name="orders")
+    client = models.ForeignKey(to=User, verbose_name="Klientas", on_delete=models.SET_NULL, null=True, blank=True)
+    date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
+    content = models.TextField(verbose_name="Užsakymas", max_length=5000)
 
+    class Meta:
+        verbose_name = "Užsakymas"
+        verbose_name_plural = "Užsakymai"
+        ordering = ["-date_created"]
 
