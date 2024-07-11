@@ -18,15 +18,23 @@ Techninė specifikacija
 <p>● Galingumas: {{ technicalspecification.power }} kW</p>
 <p><strong style="font-size: 20px;">KAINA: {{ technicalspecification.price }} €</strong></p>
 
+<hr>
+<p><strong>Komentarai:</strong></p>
+{% for order in technicalspecification.orders.all %}
+<strong>{{ order.client }}</strong>, <em>{{ order.date_created }}</em>
+<p>{{ order.content }}</p>
+<hr>
+{% endfor %}
+
 {% if user.is_authenticated %}
 <div class="fieldWrapper">
     <hr><br/>
-    <h4>Palikite komentarą, jeigu domina šis modelis</h4>
+    <p><strong>Palikite komentarą, jeigu domina šis modelis ir netrukus su Jumis susisieksmie:</strong></p>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.content }}<br/>
         <input type="submit" value="Paskelbti">
     </form>
 </div>
-    {% endif %}
+{% endif %}
 {% endblock %}

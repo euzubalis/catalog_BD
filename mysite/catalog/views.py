@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, reverse, get_object_or_404
 from .models import Manufacturer, Country, AirConditioner, TechnicalSpecification
 from django.views import generic
 from django.views.generic import ListView

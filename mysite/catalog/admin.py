@@ -19,19 +19,9 @@ class TechnicalSpecificationAdmin(admin.ModelAdmin):
 class ConditionerOrderAdmin(admin.ModelAdmin):
     list_display = ['air_conditioner', 'client', 'date_created']
 
-    def get_manufacturer(self, obj):
-        return obj
-
 # Register your models here.
 admin.site.register(Country)
 admin.site.register(Manufacturer)
 admin.site.register(AirConditioner, AirConditionerAdmin)
 admin.site.register(TechnicalSpecification, TechnicalSpecificationAdmin)
 admin.site.register(ConditionerOrder, ConditionerOrderAdmin)
-
-
-
-
-
-
-
