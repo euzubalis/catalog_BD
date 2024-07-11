@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, get_object_or_404
+from django.shortcuts import render, reverse
 from .models import Manufacturer, Country, AirConditioner, TechnicalSpecification
 from django.views import generic
 from django.views.generic import ListView
@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.contrib.auth import password_validation
 from .forms import ConditionerOrderForm
 from django.views.generic.edit import FormMixin
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -142,3 +143,7 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'registration/register.html')
+
+@login_required
+def profile(request):
+    return render(request, 'profile.html')

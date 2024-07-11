@@ -14,4 +14,5 @@ urlpatterns = [
     path('technicalspecifications/<int:pk>/', TechnicalSpecificationDetailView.as_view(), name='technicalspecification'),
     path('search/', views.search, name='search'),
     path('register/', register, name='register'),
+    path('profile/', views.profile, name='profile'),
 ]
