@@ -18,6 +18,7 @@ Techninė specifikacija
 <p>● Galingumas: {{ technicalspecification.power }} kW</p>
 <p><strong style="font-size: 20px;">KAINA: {{ technicalspecification.price }} €</strong></p>
 
+{% if user.is_authenticated %}
 <hr>
 <p><strong>Komentarai:</strong></p>
 {% for order in technicalspecification.orders.all %}
@@ -26,7 +27,6 @@ Techninė specifikacija
 <hr>
 {% endfor %}
 
-{% if user.is_authenticated %}
 <div class="fieldWrapper">
     <hr><br/>
     <p><strong>Palikite komentarą, jeigu domina šis modelis ir netrukus su Jumis susisieksime:</strong></p>
