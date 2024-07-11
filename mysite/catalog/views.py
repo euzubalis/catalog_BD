@@ -83,6 +83,11 @@ class TechnicalSpecificationDetailView(FormMixin, generic.DetailView):
     def get_success_url(self):
         return reverse('technicalspecification', kwargs={'pk': self.object.pk})
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = ConditionerOrderForm()
+        return context
+
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         form = self.get_form()
@@ -92,7 +97,7 @@ class TechnicalSpecificationDetailView(FormMixin, generic.DetailView):
             return self.form_invalid(form)
 
     def form_valid(self, form):
-        form.instance.technical_specification = self.object
+        form.instance.air_conditioner = self.object
         form.instance.client = self.request.user
         form.save()
         return super().form_valid(form)
