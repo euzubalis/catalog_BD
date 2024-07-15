@@ -68,3 +68,9 @@ class ConditionerOrder(models.Model):
         verbose_name_plural = "Užsakymai"
         ordering = ["-date_created"]
 
+class Profile(models.Model):
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
+    photo = models.ImageField(verbose_name="Nuotrauka", default="profile_pics/default.png", upload_to="profile_pics")
+
+    def __str__(self):
+        return f"{self.user.username} profilis"

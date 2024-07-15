@@ -1,5 +1,10 @@
 from django.contrib import admin
-from . models import Country, Manufacturer, AirConditioner, TechnicalSpecification, ConditionerOrder
+from . models import (Country,
+                      Manufacturer,
+                      AirConditioner,
+                      TechnicalSpecification,
+                      ConditionerOrder,
+                      Profile)
 
 class AirConditionerAdmin(admin.ModelAdmin):
     list_display = ['manufacturer', 'model_name', 'country']
@@ -25,3 +30,4 @@ admin.site.register(Manufacturer)
 admin.site.register(AirConditioner, AirConditionerAdmin)
 admin.site.register(TechnicalSpecification, TechnicalSpecificationAdmin)
 admin.site.register(ConditionerOrder, ConditionerOrderAdmin)
+admin.site.register(Profile)
