@@ -10,7 +10,7 @@ from django.contrib.auth.forms import User
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth import password_validation
-from .forms import ConditionerOrderForm, UserUpdateForm
+from .forms import ConditionerOrderForm, UserUpdateForm, ProfileUpdateForm
 from django.views.generic.edit import FormMixin
 from django.contrib.auth.decorators import login_required
 
@@ -148,6 +148,7 @@ def register(request):
 def profile(request):
     if request.method == "POST":
         u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         new_email = request.POST['email']
         if new_email == '':
             messages.error(request, 'El. pašto laukas negali būti tuščias!')
@@ -155,13 +156,16 @@ def profile(request):
         if request.user.email != new_email and User.objects.filter(email=new_email).exists():
             messages.error(request, f'Vartotojas su el. paštu {new_email} jau užregistruotas!')
             return redirect('profile')
-        if u_form.is_valid():
+        if u_form.is_valid() and p_form.is_valid():
             u_form.save()
+            p_form.save()
             messages.info(request, 'Vartotojo duomenys atnaujinti!')
             return redirect('profile')
 
     u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
     context = {
         'u_form': u_form,
+        'p_form': p_form,
     }
     return render(request, 'profile.html', context=context)
