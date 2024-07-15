@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 
 class Country(models.Model):
     name = models.CharField(verbose_name="Šalis", max_length=100)
@@ -69,8 +70,16 @@ class ConditionerOrder(models.Model):
         ordering = ["-date_created"]
 
 class Profile(models.Model):
-    user = models.OneToOneField(to=User, on_delete=models.CASCADE)
-    photo = models.ImageField(verbose_name="Nuotrauka", default="profile_pics/default.png", upload_to="profile_pics")
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    photo = models.ImageField(default="default.png", upload_to="profile_pics")
 
     def __str__(self):
         return f"{self.user.username} profilis"
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        img = Image.open(self.photo.path)
+        if img.height > 200 or img.width > 200:
+            output_size = (200, 200)
+            img.thumbnail(output_size)
+            img.save(self.photo.path)
