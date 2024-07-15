@@ -3,11 +3,21 @@
 
 {% block 'content' %}
 <div class="content-section">
-      <img class="rounded-circle account-img" src="{{ user.profile.photo.url }}">
       <h2 class="account-heading">{{ user.username }}</h2>
       <p class="text-secondary">{{ user.email }}</p>
       <p class="text-secondary"><strong>Vardas:</strong> {{ user.first_name }}</p>
       <p class="text-secondary"><strong>Pavardė:</strong> {{ user.last_name }}</p>
-    </div>
+
+      <form method="post">
+          {% csrf_token %}
+          {% load crispy_forms_tags %}
+          <fieldset>
+                <legend class="border-bottom mb-4">Profilio info</legend>
+                {{ u_form | crispy }}
+          </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Atnaujinti</button>
+            </div>
+      </form>
 </div>
 {% endblock %}
