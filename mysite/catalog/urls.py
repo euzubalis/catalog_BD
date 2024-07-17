@@ -15,4 +15,5 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('register/', register, name='register'),
     path('profile/', views.profile, name='profile'),
+    path('i18n/', include('django.conf.urls.i18n')),
 ]
