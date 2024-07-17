@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% block 'title' %}
-Techninė specifikacija
+{% trans "Technical specification" %}
 {% endblock %}
 
 {% block 'content' %}
@@ -9,18 +9,18 @@ Techninė specifikacija
         <img src="{{ technicalspecification.cover.url }}" style="width: 300px; height: 300px; object-fit: contain;">
     {% endif %}
 <h2 style="margin-bottom: 20px;">{{ technicalspecification.air_conditioner.model_name }}</h2>
-<p>● Vidinio bloko matmenys: {{ technicalspecification.indoor_unit_dimensions }}</p>
-<p>● Lauko bloko matmenys: {{ technicalspecification.outdoor_unit_dimensions }}</p>
-<p>● Energijos efektyvumo klasė: {{ technicalspecification.energy_efficiency_class }}</p>
-<p>● Darbinė temperatūra: {{ technicalspecification.operating_temperature }}</p>
-<p>● Lauko bloko svoris: {{ technicalspecification.outdoor_unit_weight }}</p>
-<p>● Vidinio bloko svoris: {{ technicalspecification.indoor_unit_weight }}</p>
-<p>● Galingumas: {{ technicalspecification.power }} kW</p>
-<p><strong style="font-size: 20px;">KAINA: {{ technicalspecification.price }} €</strong></p>
+<p>● {% trans "Indoor unit dimensions" %}: {{ technicalspecification.indoor_unit_dimensions }}</p>
+<p>● {% trans "Outdoor unit dimensions" %}: {{ technicalspecification.outdoor_unit_dimensions }}</p>
+<p>● {% trans "Energy efficiency class" %}: {{ technicalspecification.energy_efficiency_class }}</p>
+<p>● {% trans "Operating temperature" %}: {{ technicalspecification.operating_temperature }}</p>
+<p>● {% trans "Outdoor unit weight" %}: {{ technicalspecification.outdoor_unit_weight }}</p>
+<p>● {% trans "Indoor unit weight" %}: {{ technicalspecification.indoor_unit_weight }}</p>
+<p>● {% trans "Power" %}: {{ technicalspecification.power }} kW</p>
+<p><strong style="font-size: 20px;">{% trans "PRICE" %}: {{ technicalspecification.price }} €</strong></p>
 
 {% if user.is_authenticated %}
 <hr>
-<p><strong>Komentarai:</strong></p>
+<p><strong>{% trans "Comments" %}:</strong></p>
 {% for order in technicalspecification.orders.all %}
 <img class="rounded-circle account-img" style="width: 30px" src="{{ order.client.profile.photo.url }}"><br/>
 <strong>{{ order.client }}</strong>, <em>{{ order.date_created }}</em>
@@ -30,11 +30,11 @@ Techninė specifikacija
 
 <div class="fieldWrapper">
     <hr><br/>
-    <p><strong>Palikite komentarą, jeigu domina šis modelis ir netrukus su Jumis susisieksime:</strong></p>
+    <p><strong>{% trans "Leave a comment if you are interested in this model and we will contact you soon:" %}</strong></p>
     <form action="" method="post">
         {% csrf_token %}
         {{ form.content }}<br/>
-        <input type="submit" value="Paskelbti">
+        <input type="submit" value={% trans "Publish" %}>
     </form>
 </div>
 {% endif %}

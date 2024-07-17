@@ -1,36 +1,37 @@
 {% extends 'base.html' %}
-{% block 'title' %}Paieškos rezultatai{% endblock %}
+{% load i18n %}
+{% block 'title' %}{% trans "Search results" %}{% endblock %}
 
 {% block 'content' %}
-    <h1>Paieškos "{{ query }}" rezultatai:</h1>
+    <h1>{% trans "Search results for" %} "{{ query }}":</h1>
 
-    <h3>Gamintojas:</h3>
+    <h3>{% trans "Manufacturer" %}:</h3>
     {% if manufacturers %}
         {% for manufacturer in manufacturers %}
             <p><a href="{% url 'manufacturer' manufacturer.pk %}">{{ manufacturer }}</a></p>
             <hr>
         {% endfor %}
     {% else %}
-        <p>Gamintojas nerastas.</p>
+        <p>{% trans "Manufacturer not found." %}</p>
     {% endif %}
 
-    <h3>Modelis:</h3>
+    <h3>{% trans "Model" %}:</h3>
     {% if airconditioners %}
         {% for airconditioner in airconditioners %}
             <p><a href="{% url 'airconditioner' airconditioner.pk %}">{{ airconditioner }}</a></p>
             <hr>
         {% endfor %}
     {% else %}
-        <p>Modelis nerastas.</p>
+        <p>{% trans "Model not found." %}</p>
     {% endif %}
 
-    <h3>Techninės specifikacijos:</h3>
+    <h3>{% trans "Technical specifications" %}:</h3>
     {% if technicalspecifications %}
         {% for technicalspecification in technicalspecifications %}
             <p><a href="{% url 'technicalspecification' technicalspecification.pk %}">{{ technicalspecification }}</a></p>
             <hr>
         {% endfor %}
     {% else %}
-        <p>Techninių specifikacijų atitinkančių paieška nerasta.</p>
+        <p>{% trans "No technical specifications matching the search were found." %}</p>
     {% endif %}
 {% endblock %}

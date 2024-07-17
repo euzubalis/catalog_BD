@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
-{% block 'title' %}Vartotojo profilis{% endblock %}
+{% load i18n %}
+{% block 'title' %}{% trans "User profile" %}{% endblock %}
 
 {% block 'content' %}
 <div class="content-section">
       <img class="rounded-circle account-img" src="{{ user.profile.photo.url }}">
       <h2 class="account-heading">{{ user.username }}</h2>
-      <p class="text-secondary"><strong>El. paštas :</strong> {{ user.email }}</p>
-      <p class="text-secondary"><strong>Vardas:</strong> {{ user.first_name }}</p>
-      <p class="text-secondary"><strong>Pavardė:</strong> {{ user.last_name }}</p>
+      <p class="text-secondary"><strong>{% trans "Email :" %}</strong> {{ user.email }}</p>
+      <p class="text-secondary"><strong>{% trans "First name:" %}</strong> {{ user.first_name }}</p>
+      <p class="text-secondary"><strong>{% trans "Last name:" %}</strong> {{ user.last_name }}</p>
 
       <form method="POST" enctype="multipart/form-data">
           {% csrf_token %}
           {% load crispy_forms_tags %}
           <fieldset>
-                <legend class="border-bottom mb-4">Profilio informacija</legend>
+                <legend class="border-bottom mb-4">{% trans "Profile information" %}</legend>
                 {{ u_form | crispy }}
                 {{ p_form | crispy }}
           </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Atnaujinti</button>
+                <button class="btn btn-outline-info" type="submit">{% trans "Update" %}</button>
             </div>
       </form>
 </div>

@@ -8,17 +8,122 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 12:06+0300\n"
-"PO-Revision-Date: 2024-07-17 12:11+0300\n"
+"POT-Creation-Date: 2024-07-17 14:12+0300\n"
+"PO-Revision-Date: 2024-07-17 14:05+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && (n%100<11 || n%100>19) ? 0 : "
-"n%10>=2 && n%10<=9 && (n%100<11 || n%100>19) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && (n%100<11 || n%100>19) ? 0 : n"
+"%10>=2 && n%10<=9 && (n%100<11 || n%100>19) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.4\n"
+
+#: .\models.py:7 .\models.py:13 .\models.py:33
+msgid "Country"
+msgstr "Šalis"
+
+#: .\models.py:14
+msgid "Countries"
+msgstr "Šalys"
+
+#: .\models.py:17 .\models.py:26 .\models.py:32 .\templates\manufacturer.html:3
+#: .\templates\search.html:8
+msgid "Manufacturer"
+msgstr "Gamintojas"
+
+#: .\models.py:18 .\models.py:31
+msgid "Description"
+msgstr "Aprašymas"
+
+#: .\models.py:19
+msgid "Logo"
+msgstr "Logotipas"
+
+#: .\models.py:27 .\templates\base.html:25 .\templates\manufacturers.html:3
+msgid "Manufacturers"
+msgstr "Gamintojai"
+
+#: .\models.py:30 .\templates\search.html:18
+msgid "Model"
+msgstr "Modelis"
+
+#: .\models.py:34
+msgid "Photo"
+msgstr "Nuotrauka"
+
+#: .\models.py:40 .\models.py:44
+msgid "Air Conditioner"
+msgstr "Oro kondicionierius"
+
+#: .\models.py:41
+msgid "Air Conditioners"
+msgstr "Oro kondicionieriai"
+
+#: .\models.py:45 .\templates\technicalspecification.html:12
+msgid "Indoor unit dimensions"
+msgstr "Vidinio bloko matmenys"
+
+#: .\models.py:46 .\templates\technicalspecification.html:13
+msgid "Outdoor unit dimensions"
+msgstr "Išorinio bloko matmenys"
+
+#: .\models.py:47 .\templates\technicalspecification.html:14
+msgid "Energy efficiency class"
+msgstr "Energijos efektyvumo klasė"
+
+#: .\models.py:48 .\templates\technicalspecification.html:15
+msgid "Operating temperature"
+msgstr "Darbinė temperatūra"
+
+#: .\models.py:49
+msgid "Outdoor unit weight (kg)"
+msgstr "Išorinio bloko svoris (kg)"
+
+#: .\models.py:50
+msgid "Indoor unit weight (kg)"
+msgstr "Vidinio bloko svoris (kg)"
+
+#: .\models.py:51
+msgid "Power (kW)"
+msgstr "Galingumas (kW)"
+
+#: .\models.py:52
+msgid "Price"
+msgstr "Kaina"
+
+#: .\models.py:53
+msgid "Cover"
+msgstr "Logotipas"
+
+#: .\models.py:59
+msgid "Technical Specification"
+msgstr "Techninės specifikacija"
+
+#: .\models.py:60
+msgid "Technical Specifications"
+msgstr "Techninės specifikacijos"
+
+#: .\models.py:63 .\templates\technicalspecification.html:4
+msgid "Technical specification"
+msgstr "Techninės specifikacija"
+
+#: .\models.py:64
+msgid "Client"
+msgstr "Klientas"
+
+#: .\models.py:65
+msgid "Date"
+msgstr "Data"
+
+#: .\models.py:66 .\models.py:69
+msgid "Order"
+msgstr "Užsakymas"
+
+#: .\models.py:70
+msgid "Orders"
+msgstr "Užsakymai"
 
 #: .\templates\base.html:15
 msgid "AIR CONDITIONER CATALOG"
@@ -28,15 +133,13 @@ msgstr "ORO KONDICIONIERIŲ KATALOGAS"
 msgid "Main"
 msgstr "Pagrindinis"
 
-#: .\templates\base.html:25
-msgid "Manufacturers"
-msgstr "Gamintojai"
-
 #: .\templates\base.html:28
 msgid "Air conditioner models"
 msgstr "Oro kondicionierių modeliai"
 
-#: .\templates\base.html:31
+#: .\templates\base.html:31 .\templates\search.html:28
+#: .\templates\technicalspecifications.html:3
+#: .\templates\technicalspecifications.html:6
 msgid "Technical specifications"
 msgstr "Techninės specifikacijos"
 
@@ -60,7 +163,7 @@ msgstr "Paieška"
 msgid "Today we have:"
 msgstr "Šiuo metu mes turime:"
 
-#: .\templates\index.html:8
+#: .\templates\index.html:8 .\templates\manufacturers.html:6
 msgid "Manufacturers:"
 msgstr "Gamintojai:"
 
@@ -71,3 +174,103 @@ msgstr "Gamybos šalys:"
 #: .\templates\index.html:11
 msgid "Your visits:"
 msgstr "Jūsų apsilankymai:"
+
+#: .\templates\profile.html:3
+msgid "User profile"
+msgstr "Vartotojo profilis"
+
+#: .\templates\profile.html:9
+msgid "Email :"
+msgstr "El. paštas:"
+
+#: .\templates\profile.html:10
+msgid "First name:"
+msgstr "Vardas:"
+
+#: .\templates\profile.html:11
+msgid "Last name:"
+msgstr "Pavardė:"
+
+#: .\templates\profile.html:17
+msgid "Profile information"
+msgstr "Profilio informacija"
+
+#: .\templates\profile.html:22
+msgid "Update"
+msgstr "Atnaujinti"
+
+#: .\templates\search.html:3
+msgid "Search results"
+msgstr "Paieška"
+
+#: .\templates\search.html:6
+msgid "Search results for"
+msgstr "Paieškos rezultatai"
+
+#: .\templates\search.html:15
+msgid "Manufacturer not found."
+msgstr "Gamintojas nerastas."
+
+#: .\templates\search.html:25
+msgid "Model not found."
+msgstr "Modelis nerastas."
+
+#: .\templates\search.html:35
+msgid "No technical specifications matching the search were found."
+msgstr "Techninių specifikacijų atitinkančių paiešką nerasta."
+
+#: .\templates\technicalspecification.html:16
+msgid "Outdoor unit weight"
+msgstr "Išorinio bloko svoris (kg)"
+
+#: .\templates\technicalspecification.html:17
+msgid "Indoor unit weight"
+msgstr "Vidinio bloko svoris (kg)"
+
+#: .\templates\technicalspecification.html:18
+msgid "Power"
+msgstr "Galingumas (kW)"
+
+#: .\templates\technicalspecification.html:19
+msgid "PRICE"
+msgstr "KAINA"
+
+#: .\templates\technicalspecification.html:23
+msgid "Comments"
+msgstr "Komentarai"
+
+#: .\templates\technicalspecification.html:33
+msgid ""
+"Leave a comment if you are interested in this model and we will contact you "
+"soon:"
+msgstr ""
+"Palikite komentarą, jeigu domina šis modelis ir netrukus su Jumis "
+"susisieksime:"
+
+#: .\templates\technicalspecification.html:37
+msgid "Publish"
+msgstr "Paskelbti"
+
+#: .\templates\technicalspecifications.html:24
+msgid "First"
+msgstr "Pirmas"
+
+#: .\templates\technicalspecifications.html:25
+msgid "Previous"
+msgstr "Ankstesnis"
+
+#: .\templates\technicalspecifications.html:29
+msgid "Page"
+msgstr "Puslapis"
+
+#: .\templates\technicalspecifications.html:29
+msgid "of"
+msgstr "iš"
+
+#: .\templates\technicalspecifications.html:33
+msgid "Next"
+msgstr "Kitas"
+
+#: .\templates\technicalspecifications.html:34
+msgid "Last"
+msgstr "Paskutinis"

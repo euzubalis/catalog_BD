@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% block 'title' %}Techninės specifikacijos{% endblock %}
+{% load i18n %}
+{% block 'title' %}{% trans "Technical specifications" %}{% endblock %}
 
 {% block 'content' %}
-<h1>Techninės specifikacijos:</h1>
+<h1>{% trans "Technical specifications" %}</h1>
 <div class="row">
     {% for technicalspecification in technicalspecifications %}
     <div class="col-md-4 d-flex align-items-strech">
@@ -20,17 +21,17 @@
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+            <a href="?page=1">&laquo; {% trans "First" %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "Previous" %}</a>
         {% endif %}
 
         <span class="current">
-            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+            {% trans "Page" %} {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">{% trans "Next" %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "Last" %} &raquo;</a>
         {% endif %}
     </span>
 </div>
