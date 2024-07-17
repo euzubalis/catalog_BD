@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 18:12+0300\n"
-"PO-Revision-Date: 2024-07-17 18:14+0300\n"
+"POT-Creation-Date: 2024-07-17 18:27+0300\n"
+"PO-Revision-Date: 2024-07-17 18:29+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -467,3 +467,16 @@ msgstr "El. paštas %s jau egzistuoja!"
 #: .\views.py:135
 msgid "Passwords do not match!"
 msgstr "Slaptažodžiai nesutampa!"
+
+#: .\views.py:146
+msgid "Email field cannot be empty!"
+msgstr "El. paštas negali būti tuščias!"
+
+#: .\views.py:149
+#, python-format
+msgid "User with email %s is already registered!"
+msgstr "Vartotojas su šiuo el. paštu %s jau egzistuoja!"
+
+#: .\views.py:154
+msgid "User data updated!"
+msgstr "Duomenys atnaujinti!"
