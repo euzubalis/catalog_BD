@@ -2,11 +2,12 @@
 {% block 'title' %}KATALOGAS{% endblock %}
 
 {% block 'content' %}
-    <h1>Šiuo metu mes turime:</h1>
+    {% load i18n %}
+    <h1>{% trans "Today we have:" %}</h1>
     <ul>
-        <li><strong>Gamintojai:</strong> {{ num_manufacturer }}</li>
-        <li><strong>Gamybos šalys:</strong> {{ num_country }}</li>
+        <li><strong>{% trans "Manufacturers:" %}</strong> {{ num_manufacturer }}</li>
+        <li><strong>{% trans "Countries of manufacture:" %}</strong> {{ num_country }}</li>
     </ul>
-    <p>Čia jūs lankotės {{ num_visits }}-ą kartą.</p>
+    <p>{% trans "Your visits:" %} {{ num_visits }}</p>
 {% endblock %}
 

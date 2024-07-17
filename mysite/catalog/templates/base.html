@@ -10,25 +10,25 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body class="d-flex flex-column">
-
+{% load i18n %}
 <div class="p-5 bg-primary text-white text-center">
-  <h1>Kondicionierių katalogas</h1>
+  <h1>{% trans "AIR CONDITIONER CATALOG" %}</h1>
 </div>
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'index' %}">Pagrindinis</a>
+        <a class="nav-link" href="{% url 'index' %}">{% trans "Main" %}</a>
       </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'manufacturers' %}">Gamintojai</a>
+            <a class="nav-link" href="{% url 'manufacturers' %}">{% trans "Manufacturers" %}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'airconditioners' %}">Oro kondicionierių modeliai</a>
+            <a class="nav-link" href="{% url 'airconditioners' %}">{% trans "Air conditioner models" %}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'technicalspecifications' %}">Techninės specifikacijos</a>
+            <a class="nav-link" href="{% url 'technicalspecifications' %}">{% trans "Technical specifications" %}</a>
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
@@ -42,21 +42,21 @@
          <li class="nav-item">
             <form method="post" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <button class="nav-link" type="submit">Atsijungti</button>
+                <button class="nav-link" type="submit">{% trans "Logout" %}</button>
             </form>
         </li>
         {% else %}
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Registruotis</a>
+            <a class="nav-link" href="{% url 'register' %}">{% trans "Register" %}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Prisijungti</a>
+            <a class="nav-link" href="{% url 'login' %}">{% trans "Login" %}</a>
         </li>
         {% endif %}
         <li>
     </ul>
       <form action="{% url 'search' %}" method="get" class="d-flex">
-                <input name="query" class="form-control me-2" type="text" placeholder="Paieška">
+                <input name="query" class="form-control me-2" type="text" placeholder='{% trans "Search" %}'>
             </form>
       </div>
 </nav>
