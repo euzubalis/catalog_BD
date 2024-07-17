@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 15:38+0300\n"
-"PO-Revision-Date: 2024-07-17 15:47+0300\n"
+"POT-Creation-Date: 2024-07-17 18:12+0300\n"
+"PO-Revision-Date: 2024-07-17 18:14+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -190,7 +190,7 @@ msgstr "Techninės specifikacijos"
 msgid "Logout"
 msgstr "Atsijungti"
 
-#: .\templates\base.html:50 .\templates\registration\register.html:31
+#: .\templates\base.html:50 .\templates\register.html:31
 msgid "Register"
 msgstr "Registruotis"
 
@@ -198,7 +198,7 @@ msgstr "Registruotis"
 msgid "Login"
 msgstr "Prisijungti"
 
-#: .\templates\base.html:59
+#: .\templates\base.html:58
 msgid "Search"
 msgstr "Paieška"
 
@@ -241,6 +241,51 @@ msgstr "Profilio informacija"
 #: .\templates\profile.html:22
 msgid "Update"
 msgstr "Atnaujinti"
+
+#: .\templates\register.html:3 .\templates\register.html:4
+#: .\templates\register.html:9
+msgid "Registration"
+msgstr "Registracija"
+
+#: .\templates\register.html:13
+msgid "Username"
+msgstr "Vartotojo vardas"
+
+#: .\templates\register.html:15
+msgid "Up to 150 characters."
+msgstr "Iki 150 simbolių."
+
+#: .\templates\register.html:18
+msgid "Email"
+msgstr "El. paštas"
+
+#: .\templates\register.html:20
+msgid ""
+"We won't share with anyone, we won't send any spam. Needed to send a new "
+"password."
+msgstr ""
+"Su niekuo nesidalinsime, jokio šlamšto nesiųsime. Reikia naujo slaptažodžio "
+"išsiuntimui."
+
+#: .\templates\register.html:23
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: .\templates\register.html:25
+msgid "At least 8 characters. Cannot be just numbers"
+msgstr "Bent 8 simboliai. Negali būti tik skaičiai"
+
+#: .\templates\register.html:28
+msgid "Repeat password"
+msgstr "Pakartokite slaptažodį"
+
+#: .\templates\register.html:33
+msgid "If you have registered before,"
+msgstr "Jei užsiregistravote anksčiau,"
+
+#: .\templates\register.html:33
+msgid "log in."
+msgstr "prisijunkite."
 
 #: .\templates\registration\login.html:8
 msgid "Invalid username or password!"
@@ -329,52 +374,6 @@ msgstr "El. paštas:"
 msgid "Reset password"
 msgstr "Atstatyti slaptažodį"
 
-#: .\templates\registration\register.html:3
-#: .\templates\registration\register.html:4
-#: .\templates\registration\register.html:9
-msgid "Registration"
-msgstr "Registracija"
-
-#: .\templates\registration\register.html:13
-msgid "Username"
-msgstr "Vartotojo vardas"
-
-#: .\templates\registration\register.html:15
-msgid "Up to 150 characters."
-msgstr "Iki 150 simbolių."
-
-#: .\templates\registration\register.html:18
-msgid "Email"
-msgstr "El. paštas"
-
-#: .\templates\registration\register.html:20
-msgid ""
-"We won't share with anyone, we won't send any spam. Needed to send a new "
-"password."
-msgstr ""
-"Su niekuo nesidalinsime, jokio šlamšto nesiųsime. Reikia naujo slaptažodžio "
-"išsiuntimui."
-
-#: .\templates\registration\register.html:23
-msgid "Password"
-msgstr "Slaptažodis"
-
-#: .\templates\registration\register.html:25
-msgid "At least 8 characters. Cannot be just numbers"
-msgstr "Bent 8 simboliai. Negali būti tik skaičiai"
-
-#: .\templates\registration\register.html:28
-msgid "Repeat password"
-msgstr "Pakartokite slaptažodį"
-
-#: .\templates\registration\register.html:33
-msgid "If you have registered before,"
-msgstr "Jei užsiregistravote anksčiau,"
-
-#: .\templates\registration\register.html:33
-msgid "log in."
-msgstr "prisijunkite."
-
 #: .\templates\search.html:3
 msgid "Search results"
 msgstr "Paieška"
@@ -454,3 +453,17 @@ msgstr "Kitas"
 #: .\templates\technicalspecifications.html:34
 msgid "Last"
 msgstr "Paskutinis"
+
+#: .\views.py:124
+#, python-format
+msgid "Username %s already exists!"
+msgstr "Vartotojo vardas %s jau egzistuoja!"
+
+#: .\views.py:129
+#, python-format
+msgid "Email %s already exists!"
+msgstr "El. paštas %s jau egzistuoja!"
+
+#: .\views.py:135
+msgid "Passwords do not match!"
+msgstr "Slaptažodžiai nesutampa!"
