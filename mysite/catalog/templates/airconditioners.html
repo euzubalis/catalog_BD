@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% block 'title' %}Airconditioners{% endblock %}
+{% load i18n %}
+{% block 'title' %}{% trans "Air conditioners" %}{% endblock %}
 
 {% block 'content' %}
-    <h1>Oro kondicionerių modeliai:</h1>
+    <h1>{% trans "Air conditioner models:" %}</h1>
 <div class="row">
     {% for airconditioner in airconditioners %}
     <div class="col-md-4 d-flex align-items-strech">
@@ -20,17 +21,17 @@
   <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+            <a href="?page=1">&laquo; {% trans "first" %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "back" %}</a>
         {% endif %}
 
         <span class="current">
-            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+            {{ page_obj.number }} {% trans "out of" %} {{ page_obj.paginator.num_pages }}
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">{% trans "forward" %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
         {% endif %}
     </span>
 </div>

@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
-{% block 'title' %}Airconditioner{% endblock %}
+{% load i18n %}
+{% block 'title' %}{% trans "Air conditioner" %}{% endblock %}
 
 {% block 'content' %}
     {% if airconditioner.cover %}
         <img src="{{ airconditioner.cover.url }}" style="width: 300px; height: 300px; object-fit: contain;">
     {% endif %}
     <h1>{{ airconditioner.manufacturer }}</h1>
-    <p><strong>Modelis: </strong>{{ airconditioner.model_name }}</p>
-    <p><strong>Gamybos šalis: </strong>{{ airconditioner.country }}</p>
-    <p><strong>Modelio aprašymas: </strong>{{ airconditioner.description }}</p>
+    <p><strong>{% trans "Model:" %} </strong>{{ airconditioner.model_name }}</p>
+    <p><strong>{% trans "Country of manufacture:" %} </strong>{{ airconditioner.country }}</p>
+    <p><strong>{% trans "Model description:" %} </strong>{{ airconditioner.description }}</p>
 {% endblock %}
-
